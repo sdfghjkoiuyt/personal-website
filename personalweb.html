@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Bamniya | Cloud & Systems Engineer</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        body {
+            background-color: #050505;
+            color: #e5e5e5;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(to right, #ffffff, #a5a5a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-accent {
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        /* Photo Glow */
+        .photo-container {
+            position: relative;
+        }
+        .photo-container::after {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            z-index: -1;
+            filter: blur(40px);
+            opacity: 0.5;
+            border-radius: 20px;
+        }
+
+        /* Marquee */
+        .marquee-container { overflow: hidden; white-space: nowrap; }
+        .marquee-content { display: inline-block; animation: scroll 25s linear infinite; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* Timeline line */
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, #333, transparent);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <nav class="fixed w-full z-50 top-0 left-0 p-6 backdrop-blur-md bg-black/50 border-b border-white/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-tighter brand-font">SB.</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+            <a href="#contact" class="px-5 py-2 text-xs font-bold bg-white text-black rounded-full hover:bg-gray-200 transition-colors">Let's Talk</a>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center items-center relative px-6 pt-20">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[100px] -z-10"></div>
+
+        <div class="text-center max-w-4xl z-10">
+            <div class="mb-4 inline-block px-4 py-1 rounded-full border border-white/10 bg-white/5 text-xs tracking-widest uppercase text-blue-400 hero-anim">
+                Available for Cloud Engineering Roles
+            </div>
+            <h1 class="text-6xl md:text-8xl font-bold tracking-tighter mb-6 hero-anim">
+                Suraj <span class="gradient-text">Bamniya</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed mb-10 hero-anim">
+                BSc IT Student mastering the intersection of <span class="text-white">Low-Level Code (C/C++)</span> and <span class="text-white">High-Scale Cloud Infrastructure</span>.
+            </p>
+            <div class="flex gap-4 justify-center hero-anim">
+                <a href="#projects" class="px-8 py-3 bg-white text-black font-semibold rounded-full hover:scale-105 transition-transform">See My Work</a>
+                <a href="https://github.com" target="_blank" class="px-8 py-3 border border-white/20 rounded-full hover:bg-white/10 transition-colors flex items-center gap-2">
+                    <span>GitHub</span>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="photo-anim relative order-2 md:order-1">
+                <div class="photo-container rounded-2xl">
+                    <img src="Gemini_Generated_Image_gvvltugvvltugvvl.png" 
+                         alt="Suraj Bamniya" 
+                         class="w-full h-[500px] object-cover rounded-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+            </div>
+
+            <div class="text-left order-1 md:order-2">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 reveal-text">More Than Just Code.</h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6 reveal-text">
+                    I am Suraj, a BSc IT student with a relentless drive to understand how computers work at a fundamental level. While others focus on frameworks, I focus on <span class="text-white font-medium">architecture</span>.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8 reveal-text">
+                    From manipulating memory in **C++** to deploying scalable microservices on **Linux servers**, I am building the skillset to become a world-class Cloud Engineer.
+                </p>
+                
+                <div class="grid grid-cols-2 gap-4 reveal-text">
+                    <div class="p-4 border border-white/10 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-1">C++ / Python</h3>
+                        <p class="text-sm text-gray-500">Core Languages</p>
+                    </div>
+                    <div class="p-4 border border-white/10 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-1">Linux / SQL</h3>
+                        <p class="text-sm text-gray-500">Infrastructure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 border-y border-white/5 bg-white/5">
+        <div class="marquee-container">
+            <div class="marquee-content flex items-center space-x-20 px-10">
+                <span class="text-4xl font-bold text-gray-600">GOLDMAN SACHS</span>
+                <span class="text-4xl font-bold text-gray-600">J.P. MORGAN</span>
+                <span class="text-4xl font-bold text-gray-600">THE NEW YORK TIMES</span>
+                <span class="text-4xl font-bold text-gray-600">STRIPE</span>
+                <span class="text-4xl font-bold text-gray-600">PENTAGRAM</span>
+                <span class="text-4xl font-bold text-gray-600">GOLDMAN SACHS</span>
+                <span class="text-4xl font-bold text-gray-600">J.P. MORGAN</span>
+                <span class="text-4xl font-bold text-gray-600">THE NEW YORK TIMES</span>
+                <span class="text-4xl font-bold text-gray-600">STRIPE</span>
+                <span class="text-4xl font-bold text-gray-600">PENTAGRAM</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-32 px-6 max-w-5xl mx-auto relative">
+        <h2 class="text-4xl md:text-6xl font-bold mb-20 text-center">My Journey</h2>
+        
+        <div class="relative pl-8 md:pl-0">
+            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"></div>
+
+            <div class="md:flex justify-between items-center mb-16 experience-item">
+                <div class="md:w-[45%] text-right pr-10 hidden md:block">
+                    <h3 class="text-2xl font-bold text-white">Goldman Sachs</h3>
+                    <p class="text-blue-400 mb-2">Engineering Virtual Program</p>
+                    <p class="text-gray-400 text-sm">Gained insights into enterprise password security and optimized system architecture for high-frequency data environments.</p>
+                </div>
+                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-black transform md:-translate-x-1/2"></div>
+                <div class="md:hidden pl-8">
+                    <h3 class="text-2xl font-bold text-white">Goldman Sachs</h3>
+                    <p class="text-blue-400 mb-2">Engineering Virtual Program</p>
+                    <p class="text-gray-400 text-sm">Gained insights into enterprise password security.</p>
+                </div>
+                <div class="md:w-[45%]"></div>
+            </div>
+
+            <div class="md:flex justify-between items-center mb-16 experience-item">
+                <div class="md:w-[45%]"></div>
+                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-black transform md:-translate-x-1/2"></div>
+                <div class="md:w-[45%] md:pl-10 pl-8">
+                    <h3 class="text-2xl font-bold text-white">J.P. Morgan</h3>
+                    <p class="text-purple-400 mb-2">Software Engineering Participant</p>
+                    <p class="text-gray-400 text-sm">Worked on live interface updates using Python and React, focusing on real-time financial data visualization.</p>
+                </div>
+            </div>
+
+            <div class="md:flex justify-between items-center mb-16 experience-item">
+                <div class="md:w-[45%] text-right pr-10 hidden md:block">
+                    <h3 class="text-2xl font-bold text-white">Stripe / Fintech</h3>
+                    <p class="text-green-400 mb-2">Payment Integration Study</p>
+                    <p class="text-gray-400 text-sm">Analyzed API documentation and implemented secure payment gateways in sandbox environments.</p>
+                </div>
+                <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-green-500 rounded-full border-4 border-black transform md:-translate-x-1/2"></div>
+                <div class="md:hidden pl-8">
+                    <h3 class="text-2xl font-bold text-white">Stripe</h3>
+                    <p class="text-green-400 mb-2">Payment Integration</p>
+                    <p class="text-gray-400 text-sm">Analyzed API documentation and implemented gateways.</p>
+                </div>
+                <div class="md:w-[45%]"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 rounded-2xl group hover:bg-white/5 cursor-pointer">
+                <div class="h-12 w-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-6 text-blue-400">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7l8-4 8 4M4 7v10l8 4 8-4V7M4 7l8 4 8-4"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Linux Kernel Module</h3>
+                <p class="text-gray-400 text-sm mb-4">A custom kernel module written in C to handle memory allocation logging.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">C</span>
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">Linux</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl group hover:bg-white/5 cursor-pointer">
+                <div class="h-12 w-12 bg-yellow-500/20 rounded-lg flex items-center justify-center mb-6 text-yellow-400">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-yellow-400 transition-colors">Cloud File System</h3>
+                <p class="text-gray-400 text-sm mb-4">Python-based CLI tool to upload and retrieve files from AWS S3 buckets.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">Python</span>
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">AWS</span>
+                </div>
+            </div>
+
+            <div class="glass-card p-8 rounded-2xl group hover:bg-white/5 cursor-pointer">
+                <div class="h-12 w-12 bg-purple-500/20 rounded-lg flex items-center justify-center mb-6 text-purple-400">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">SQL Optimization</h3>
+                <p class="text-gray-400 text-sm mb-4">Database schema design that reduced query time by 40% for large datasets.</p>
+                <div class="flex gap-2">
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">MySQL</span>
+                    <span class="text-xs border border-white/20 px-2 py-1 rounded">DBA</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-6 max-w-3xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+        <p class="text-gray-400 mb-10">Have a question or want to hire me? Send a message.</p>
+        
+        <form class="glass-card p-8 rounded-2xl text-left space-y-4">
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">Name</label>
+                <input type="text" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="Your Name">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                <input type="email" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="your@email.com">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                <textarea rows="4" class="w-full bg-black/40 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-blue-500 transition-colors" placeholder="What's on your mind?"></textarea>
+            </div>
+            <button type="button" class="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-200 transition-all transform hover:scale-[1.02]">Send Message</button>
+        </form>
+    </section>
+
+    <footer class="py-8 text-center text-gray-600 text-sm">
+        <p>&copy; 2024 Suraj Bamniya. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero Stagger
+        gsap.from(".hero-anim", {
+            y: 30,
+            opacity: 0,
+            duration: 1,
+            stagger: 0.15,
+            ease: "power3.out"
+        });
+
+        // About Image Slide In
+        gsap.from(".photo-anim", {
+            scrollTrigger: { trigger: "#about", start: "top 70%" },
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+        // Text Reveal
+        gsap.utils.toArray('.reveal-text').forEach(text => {
+            gsap.from(text, {
+                scrollTrigger: { trigger: text, start: "top 85%" },
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        // Experience Timeline Stagger
+        gsap.from(".experience-item", {
+            scrollTrigger: { trigger: "#experience", start: "top 70%" },
+            y: 30,
+            opacity: 0,
+            stagger: 0.3,
+            duration: 1
+        });
+    </script>
+</body>
+</html>
